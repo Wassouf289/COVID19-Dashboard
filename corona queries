@@ -1,0 +1,43 @@
+
+#Corona confirmed cases weekly
+select daterep,sum(cases_weekly) as cases from weekly_cases
+       group by daterep
+       order by daterep
+       
+       
+#Corona cases map around the world
+select country,geoid,sum(cases_weekly) as cases from weekly_cases
+       group by country,geoid
+       order by cases desc
+       
+
+#notification rate per 100K population in Europe during the last week
+select country,geoid,notification_rate_per_100000_population_14_days as rate,daterep  from weekly_cases wc 
+       group by country,geoid,continent,notification_rate_per_100000_population_14_days,daterep
+       having (continent='Europe') and (daterep=(select max(daterep)from weekly_cases));
+       
+       
+       
+#Number of death cases in the latest week throug continents
+select continent,sum(cases_weekly),daterep from weekly_cases
+       group by continent,daterep
+       having(daterep=(select max(daterep) from weekly_cases));
+       
+
+#Top 10 Highly Death Countries
+select country,sum(deaths_weekly) as death_cases from weekly_cases
+       group by country
+       order by death_cases desc
+       limit 10
+       
+ 
+ #weekly notification rate per 100k in China      
+select daterep,notification_rate_per_100000_population_14_days as rate_per_100k from weekly_cases
+      where country='China'
+      order by daterep;
+      
+      
+#Weekly notification rate per 100k in Germany
+select daterep,notification_rate_per_100000_population_14_days as rate_per_100k from weekly_cases
+where country='Germany'
+order by daterep;
