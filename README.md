@@ -8,12 +8,15 @@ The database is stored on Amazon RDS , and the dashboard is created with Metabas
 
 
 
+
+
 <img src="images/dashboard.gif">
 
 
-### Built With
 
-    Metabase
-    PostgreSQL
-    Amazon EC2
-    Amazon RDS
+
+### Built With:
+    - Metabase
+    - PostgreSQL
+    - Amazon EC2
+    - Amazon RDS
