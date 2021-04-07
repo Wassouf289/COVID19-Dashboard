@@ -22,7 +22,7 @@ The database is stored on Amazon RDS , and the dashboard is created with Metabas
 
 - with covid_19db.sql file you can upload the database to Amazon RDS with the following command:
 
-  psql -f covid_19db.sql -h <remote-endpoint> -U <user> -p 5432 -d <dbname>
+  psql -f covid_19db.sql -h 'remote-endpoint' -U 'user' -p 5432 -d 'dbname'
     
   but you should create a database on RDS called: covid_19db , instead you can push the database into your local maschine.
   
